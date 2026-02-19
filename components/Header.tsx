@@ -1,17 +1,18 @@
-import React from "react";
-
-export default function Header() {
+// components/Header.tsx
+export default function Header({ onChangeSeccion }: { onChangeSeccion: (s: string) => void }) {
   return (
-    <header className="bg-pink-100 p-4 flex justify-between items-center shadow-md">
-      <div className="text-2xl font-bold text-green-700">For You | Tienda de regalos</div>
+    <header className="bg-pink-100 p-4 flex flex-col sm:flex-row justify-between items-center shadow-md sticky top-0 z-50">
+      <div className="text-2xl font-bold text-green-700 mb-2 sm:mb-0 cursor-pointer" onClick={() => onChangeSeccion("inicio")}>
+        For You | Tienda de Regalos
+      </div>
       <nav className="space-x-4">
-        <a href="#" className="hover:text-green-900">Inicio</a>
-        <a href="#ramos" className="hover:text-green-900">Ramos</a>
-        <a href="#temporada" className="hover:text-green-900">Temporada</a>
-        <a href="#promociones" className="hover:text-green-900">Promociones</a>
-        <a href="#contacto" className="hover:text-green-900">Contacto</a>
+        <button onClick={() => onChangeSeccion("inicio")} className="hover:text-green-900">Inicio</button>
+        <button onClick={() => onChangeSeccion("ramos")} className="hover:text-green-900">Ramos</button>
+        <button onClick={() => onChangeSeccion("temporada")} className="hover:text-green-900">Temporada</button>
+        <button onClick={() => onChangeSeccion("promociones")} className="hover:text-green-900">Promociones</button>
       </nav>
-      <div className="text-xl cursor-pointer">🛒</div>
     </header>
   );
 }
+
+
